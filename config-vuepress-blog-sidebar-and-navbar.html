@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程</title><meta name="description" content="vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程"><meta name="keywords" content="vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程"><link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="./static/css/style.css"><script type="application/ld+json">
+ {
+	          "@context": "http://schema.org",
+			                   "@type": "BreadcrumbList",
+					                    "itemListElement": [
+								                     {
+											                              "@type": "ListItem",
+														                               "position": 1,
+																	                                "item": {
+																						                                 "@id": "https://www.gocode.info",
+																										                                  "name": "home"
+																															                           }
+														                       }
+		           ,
+				                    {
+							                             "@type": "ListItem",
+										                              "position": 2,
+													                               "item": {
+																	                                        "@id": "https://www.gocode.info/config-vuepress-blog-sidebar-and-navbar.html",
+																						                                 "name": "vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程"
+																											                          }
+										                      }
+			            ]
+					     }
+</script></head><body><nav class="nav navbar-default navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><div class="navbar-brand"> <a href="/">pmpig</a></div></div></div></nav><div class="container" style="margin-top:80px"><div class="row"><div class="col-md-12" breaddiv><ol class="breadcrumb"><li><a href="/">首页</a></li><li class="active">vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程</li></ol></div><h1 class="h1_post">vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程</h1><p class="dpost_meta">published at: 2018-08-19T18:42:00+08:00</p><p class="summary"></p><div class="col-md-6 col-md-offset-1 feed"><div class="dpost"><p></p><h2 id="_1">前言</h2><p>如果你按照上一篇教程一步步照做了。那你会看到你的GitHub pages上的博客，首页是这样的</p><p><img src="https://wx4.sinaimg.cn/large/006QNwiYly1fuf5quxbwij31kw0wqtba.jpg" alt="按照上一篇博客搭建后，你的vuepress博客会是这个样子" style="width:500px"></p><p><strong>简述vuepress网页生成的原理</strong></p><p>这个网页，是由你在vps上创建的yua文件夹中的README.md文件转化生成的。</p><p>一个以 <strong>.md</strong> 为后缀的文件可以生成一个 <strong>.html</strong> 网页。这个转换过程，由vuepress自动帮我们完成，不需要我们动手。</p><p>vuepress总是将一个 <strong>README.md</strong> 文件转换成名为 <strong>index.html</strong> 的网页，作为<strong>整个网站</strong>或者<strong>单个栏目</strong>的首页。</p><p>上一篇文章中，你建立的那个写有 <strong>i love yua</strong> 的<strong>README.md</strong> 文件，就被当做整个网站的首页。</p><p>而单个栏目的首页又是什么？别急，接下来你就清楚了。</p><p>通常情况下，一个完整的网站，不止有一个网页。所以，我们要创建更多的.md文件，让vuepress生成更多的.html网页。</p><p>网页之间，就是用我们熟悉的<strong>链接</strong>来把它们关联在一起。</p><h2 id="_2">创建新的页面</h2><ol><li><code>ssh root@111.111.111.111</code>。登录你的vps，将111.111.111.111换成你的vps的IP地址</li><li><code>cd sasakiyua.github.io</code>。将<strong>sasakiyua.github.io</strong>换成你昨天的目录（仓库）名</li><li><code>vim about.md</code>。用<strong>vim</strong>编辑器创建并编辑一个新的.md文件</li><li>在打开的文件中，按下键盘的 <strong>i</strong>，注意一定要是英文小写字母 <strong>i</strong></li><li>输入 <code># 我的个人简介</code></li><li>按下键盘右上角的 <strong>esc</strong> 键。</li><li>确保输入法为英文状态，输入一个 <strong>英文冒号</strong> ，也就是按键盘上的 <code>shift + :</code> 。这时你会发现终端上的白色光标，已经来到了左下角。</li><li>输入英文小写字母 <strong>x</strong>，然后敲回车。</li><li><code>ls</code></li></ol><p>这时你会发现，你退出了编辑器，并且看到了新建的 <strong>about.md</strong> 文件。</p><h2 id="markdown">链接两个Markdown文件</h2><ol><li><code>vim README.md</code>。用 <strong>vim</strong> 编辑器打开 <strong>README.md</strong> 文件。</li><li>按下键盘上的 <strong>A</strong> 。注意是英文状态下的大写字母 A 。你会发现，光标来到了本行的末尾。</li><li>敲几下回车。目的是增加几个空行。</li><li>输入 <code>[点我](about.md)</code></li><li>按下键盘右上角的 <strong>esc</strong> 键。</li><li>确保输入法为英文状态下的输入。输入一个 <strong>英文冒号</strong> ，也就是按键盘上的 <code>shift + :</code> 。这时你会发现终端上的白色光标，已经来到了左下角。</li><li>输入英文小写字母 <strong>x</strong>，然后敲回车。</li></ol><p>通过以上步骤，你新建了一个 <strong>about.md</strong> 文件，并且在里边输入了一行内容。随后在 <strong>README.md</strong> 文件中，你加入了对新文件的 <strong>链接</strong> 。</p><h2 id="_3">查看链接效果</h2><ol><li><code>vuepress dev</code></li><li>打开浏览器输入 <strong>http://111.111.111.111:8080/</strong></li></ol><p>注意将111.111.111.111换成你自己vps的IP地址。</p><p>端口号有时会变化，并不总是 <strong>8080</strong> 。例如，本次我再输入 <strong>vuepress dev</strong> 命令后，vuepress给我指定了 <strong>8082</strong> 端口号。</p><pre class="codehilite"><code> DONE  [03:44:16] Build 38a381 finished in 6178 ms! 
+
+ VuePress dev server listening at http://localhost:8082/</code></pre><p>总之，当你输入 <strong>vuepress dev</strong> 命令后，按照输出的信息，将 <strong>localhost</strong> 换成你的vps的IP地址，将冒号后边的端口号换成vuepress指定的端口。</p><p>浏览器打开网站后，你会发现首页中多了一个绿色的链接。</p><p><img src="https://wx4.sinaimg.cn/large/006QNwiYly1fuf5quixa4j31kw0wqgoe.jpg" alt="浏览器打开网站后，你会发现首页中多了一个绿色的链接。
+" style="width:500px"></p><p>点击链接，它会把你带到另外一个页面。</p><p><img src="https://wx2.sinaimg.cn/large/006QNwiYly1fuf5qunobaj31kw0wq41h.jpg" alt="点击链接，它会把你带到另外一个页面。
+" style="width:500px"></p><p>这个新网页就是新建立的 <strong>about.md</strong> 文件转换生成的，你从浏览器的地址栏可以看到 <strong>about.html</strong> 。</p><h2 id="_4">建立一个栏目</h2><p><strong>栏目的用途</strong></p><p>在上一步中，你学会了创建一个.md文件，以此生成对应的网页。</p><p>如同之前所说，网站中可能有很多网页。</p><p>所以，你可能会创建很多.md文件，用来生成很多的网页。</p><p>并且可以按照上一步中学到的，依靠在 <strong>README.md</strong> 文件中加入链接的方式，在网站首页加入一个个新网页的链接。</p><p>这种方式有个弊端。当你网站的页面足够多以后，你如果要寻找某篇文章，就只能在首页寻找指向那篇文章的链接。寻找信息的效率会很低。</p><p>如果你的网站中许多网页<strong>内容相关</strong>，而不是一个类似于 <strong>about.html</strong> 这个孤立的自我介绍的页面，可以想象，将那些<strong>内容相关</strong>的网页归类放在同一个地方，查找信息的效率将大大增高。</p><p>例如，你有很多日语学习笔记的网页，和学习编程网页。</p><p>这种情景下，将日语学习笔记相关网页放到一起，将编程的网页放到一起，将会大大方便你查找日语或编程内容的效率。</p><p>网站栏目就是这样用的。</p><h2 id="_5">建立栏目目录</h2><ol><li><code>Ctrl + c</code></li><li><code>mkdir japanese</code></li><li><code>ls</code></li></ol><p>我们以后就把所有日语相关的.md文件 ，都放到 <strong>japanese</strong> 这个文件夹中。</p><ol><li><code>mkdir code</code></li><li><code>ls</code></li></ol><p>类似的，可以把所有编程相关的.md文件 ，都放到 <strong>code</strong> 这个文件夹中。</p><h2 id="_6">建立栏目的首页</h2><ol><li><code>echo '# 这是日语栏目的首页' &gt; ./japanese/README.md</code></li><li><code>echo '# 这是编程栏目的首页' &gt; ./code/README.md</code></li></ol><p>栏目的首页文件和网站的首页文件一样，都必须命名为 <strong>README.md</strong> 。</p><h2 id="_7">查看网站目录结构</h2><ol><li><code>yum install tree -y</code></li><li><code>tree</code></li></ol><p>你会看到如下的树形目录结构。</p><pre class="codehilite"><code>.
+├── about.md
+├── code
+│   └── README.md
+├── japanese
+│   └── README.md
+└── README.md</code></pre><p>正如你看到的，整个网站的首页文件，和两个栏目的首页文件，名字都是 <strong>README.md</strong> 。</p><p><strong>在栏目中多建一个文件</strong></p><ol><li><code>echo '# 日语语法页面' &gt; ./japanese/grammar.md</code></li><li><code>echo '# python 编程学习页面' &gt; ./code/python.md</code></li></ol><p><strong>查看目录</strong></p><ol><li><code>tree</code></li></ol><p>结构如下：</p><pre class="codehilite"><code>.
+├── about.md
+├── code
+│   ├── python.md
+│   └── README.md
+├── japanese
+│   ├── grammar.md
+│   └── README.md
+└── README.md</code></pre><h2 id="_8">查看栏目页效果</h2><ol><li><code>vuepress dev</code></li><li>打开浏览器输入 <code>http://111.111.111.111:8080/</code>。IP和端口号自己替换。</li></ol><p>你可能会奇怪，在网站没什么变化啊。</p><p>别急，你更改下浏览器中的地址，将 <strong>http://111.111.111.111:8080/</strong> 替换成<strong>http://111.111.111.111:8080/code/</strong>，然后回车。</p><p><img src="https://wx3.sinaimg.cn/large/006QNwiYly1fuf5quxzl8j31kw0wqadh.jpg" alt="配置栏目后，可以直接用地址从浏览器访问栏目的首页" style="width:500px"></p><p>这样你就能访问code栏目的首页了。</p><p>输入网站 <strong>http://111.111.111.111:8080/code/python.html</strong> 并回车</p><p><img src="https://wx2.sinaimg.cn/large/006QNwiYly1fuf5qv1ao8j31kw0wqtbw.jpg" alt="用链接地址从浏览器直接访问栏目页中的子页面" style="width:500px"></p><p>这样你就能访问code栏目中的python页面了。</p><p><strong>Japanese</strong>这个栏目的首页，和栏目下边的子页面，跟<strong>code</strong>一样，通过更改相应的地址，就可以访问了。</p><p>但是，你可能会问，这个访问方式还是很麻烦。</p><p>哈哈，接下来，等我们配置好网站的导航栏和侧边栏后，问题就迎刃而解了！</p><h2 id="vuepress">vuepress配置文件</h2><ol><li><code>Ctrl + c</code></li><li><code>vim .vuepress/config.js</code></li><li>在打开的文件中，按下键盘的 <strong>i</strong>，注意一定要是英文小写字母 <strong>i</strong></li><li>输入以下内容：</li></ol><pre class="codehilite"><code>module.exports = {
+  title: 'hello yua',
+  description: 'yua is kawaii'
+}</code></pre><p><strong>保存内容退出vim</strong></p><p>步骤跟上文中的退出vim都是一样的。</p><ol><li>按下键盘右上角的 <strong>esc</strong> 键。</li><li>确保输入法为英文状态，输入一个 <strong>英文冒号</strong> ，也就是按键盘上的 <code>shift + :</code> 。这时你会发现终端上的白色光标，已经来到了左下角。</li><li>输入英文小写字母 <strong>x</strong>，然后敲回车。</li></ol><h2 id="title">查看网站title配置效果</h2><ol><li><code>vuepress dev</code></li><li>打开浏览器，输入相应的网址，查看网页</li></ol><p><img src="https://wx1.sinaimg.cn/large/006QNwiYly1fuf5qufcphj31kw0wqq5q.jpg" alt="配置完config.js中的title字段后，能看到导航栏左侧多了网站的标题" style="width:500px"></p><p>可以看到，网页导航栏最左边出现了 <strong>hello yua</strong>，这是我们上一步在<strong>config.js</strong>里边设置的网站标题。它始终会出现在导航栏的最左边。</p><p>同时，你也可以看到浏览器的tab上，出现了<strong>i love yua | hello yua</strong>。</p><h2 id="vuepress_1">vuepress配置导航栏</h2><ol><li>按下<code>Ctrl + c</code>，回到终端。</li><li><code>vim .vuepress/config.js</code></li><li>在打开的文件中，按下键盘的 <strong>i</strong>，注意一定要是英文小写字母 <strong>i</strong></li><li>在大括号中，插入以下配置nav（导航栏）的内容：</li></ol><pre class="codehilite"><code>themeConfig: {
+    nav: [
+      { text: '关于我', link: '/about' },
+      { text: '日语', link: '/japanese/' },
+      { text: '编程', link: '/code/' },    
+
+
+    ]
+  }</code></pre><p><strong>保存内容退出vim</strong></p><p>步骤跟上文中的退出vim都是一样的。</p><ol><li>按下键盘右上角的 <strong>esc</strong> 键。</li><li>确保输入法为英文状态，输入一个 <strong>英文冒号</strong> ，也就是按键盘上的 <code>shift + :</code> 。这时你会发现终端上的白色光标，已经来到了左下角。</li><li>输入英文小写字母 <strong>x</strong>，然后敲回车。</li></ol><p>确保你的<strong>config.js</strong>文件里，最终的内容是像这样的：</p><pre class="codehilite"><code>module.exports = {
+  title: 'hello yua',
+  description: 'yua is kawaii',
+
+themeConfig: {
+    nav: [
+      { text: '关于我', link: '/about' },
+      { text: '日语', link: '/japanese/' },
+      { text: '编程', link: '/code/' },    
+
+      ]
+  }
+
+
+}</code></pre><h2 id="_9">查看导航栏配置效果</h2><ol><li><code>vuepress dev</code></li><li>打开浏览器，输入相应的网址，查看网页</li></ol><p><img src="https://wx2.sinaimg.cn/large/006QNwiYly1fuf5qutegoj31kw0wqn03.jpg" alt="配置完vuepress的导航栏链接后，可以看见它们出现在导航栏的最右侧" style="width:500px"></p><p>点几下导航栏的链接吧。</p><p><img src="https://wx3.sinaimg.cn/large/006QNwiYly1fuf5qusemvj31kw0wqjui.jpg" alt="点击导航栏中的第一个导航链接，页面成功跳转" style="width:500px"></p><p><img src="https://wx2.sinaimg.cn/large/006QNwiYly1fuf5t1glvkj31kw0wqq63.jpg" alt="点击导航栏中的第二个导航链接，页面成功跳转到分类栏目的首页" style="width:500px"></p><p><img src="https://wx2.sinaimg.cn/large/006QNwiYly1fuf5t1fyv3j31kw0wq77j.jpg" alt="点击导航栏中的第三个导航链接，页面成功跳转到分类栏目的首页" style="width:500px"></p><h2 id="_10">配置侧边栏</h2><p>在完成上一步后，你如果点击导航栏中的<strong>日语</strong>和<strong>编程</strong>链接，会来到两个栏目的首页。</p><p>而两个栏目中，除了<strong>README.md</strong>生成的栏目首页，还有<strong>python.md</strong>和<strong>grammar.md</strong>这两个文件生成的网页，怎么找不到它们呢，它们在哪里？</p><p>别急，把侧边栏配置一下，就能看见它们了！</p><ol><li>按下<code>Ctrl + c</code>，回到终端。</li><li><code>vim .vuepress/config.js</code></li><li>在打开的文件中，按下键盘的 <strong>i</strong>，注意一定要是英文小写字母 <strong>i</strong></li><li>在大括号中，插入以下配置sidebar（侧边栏）内容：</li></ol><pre class="codehilite"><code>sidebar: {
+      '/japanese/': [
+        '',
+        'grammar',
+      ],
+
+      '/code/': [
+        '',
+        'python',
+      ],
+
+         '/': [
+         '',
+        'about',
+       ]
+}</code></pre><p><strong>保存内容退出vim</strong></p><p>步骤跟上文中的退出vim都是一样的。</p><ol><li>按下键盘右上角的 <strong>esc</strong> 键。</li><li>确保输入法为英文状态，输入一个 <strong>英文冒号</strong> ，也就是按键盘上的 <code>shift + :</code> 。这时你会发现终端上的白色光标，已经来到了左下角。</li><li>输入英文小写字母 <strong>x</strong>，然后敲回车。</li></ol><p>确保你的<strong>config.js</strong>文件里，最终的内容是像这样的：</p><pre class="codehilite"><code>module.exports = {
+  title: 'hello yua',
+  description: 'yua is kawaii',
+
+themeConfig: {
+    nav: [
+      { text: '关于我', link: '/about' },
+      { text: '日语', link: '/japanese/' },
+      { text: '编程', link: '/code/' },    
+    ],
+
+sidebar: {
+      '/japanese/': [
+        '',
+        'grammar',
+      ],
+
+      '/code/': [
+        '',
+        'python',
+      ],
+
+         '/': [
+         '',
+        'about',
+       ]
+}
+  }
+}</code></pre><p>不要少了或者错了各种符号，例如逗号，大括号等。建议删除原本配置的全部内容，直接复制粘贴这段代码。</p><h2 id="_11">查看侧边栏配置效果</h2><ol><li><code>vuepress dev</code></li><li>打开浏览器，输入相应的网址，查看网页</li></ol><p>vuepress配置好侧边栏后，结果如下图：</p><p><img src="https://wx4.sinaimg.cn/large/006QNwiYly1fuf5t1i58kj31kw0wqdj9.jpg" alt="设置完vuepress侧边栏分组后，可以看到首页的侧边栏有两个未被归档的链接" style="width:500px"></p><p><img src="https://wx3.sinaimg.cn/large/006QNwiYly1fuf5t1gfemj31kw0wq426.jpg" alt="设置完侧边栏分组后，被分组的页面链接和标题全部出现在页面左侧的侧边栏区域" style="width:500px"></p><p><img src="https://wx3.sinaimg.cn/large/006QNwiYly1fuf5t1hh8rj31kw0wqadl.jpg" alt="点击侧边栏中的链接，可以抵达相应的页面" style="width:500px"></p><p>点击<strong>日语</strong>导航链接后，可以在<strong>日语</strong>栏目首页看到左侧的侧边栏，而<strong>grammar.md</strong>生成的页面，也列在了侧边栏。</p><p>同时，vuepress自动帮我们生成了类似<strong>上一页</strong>和<strong>下一页</strong>的链接。点击它们就可以翻页。</p><p>你可以去<strong>编程</strong>栏目看看，也是一样的效果。</p><p>这样，我们把内容相关的网页归档在一起的目的就实现了！</p><p><strong>生成静态文件</strong></p><ol><li>键盘按下<code>Ctrl + c</code>，回到终端。</li><li><code>vuepress build</code></li></ol><h2 id="web">部署到web 服务器</h2><ol><li><code>service httpd start</code></li><li><code>rm -rf /var/www/html/*</code></li><li><code>cp -r .vuepress/dist/* /var/www/html/</code></li><li>打开浏览器，输入111.111.111.111</li></ol><p>将111.111.111.111换成你自己的vps的IP地址</p><p>现在你可以用自己的IP地址访问你的网站了。</p><h2 id="github-pages">部署到GitHub pages</h2><ol><li><code>cd ~/sasakiyua.github.io</code></li><li><code>git rm -rf *</code></li><li><code>cd -</code></li><li><code>cp -r .vuepress/dist/* ~/sasakiyua.github.io</code></li><li><code>cd ~/sasakiyua.github.io</code></li><li><code>git add .</code></li><li><code>git commit -m 'blog'</code></li><li><code>git push</code></li></ol><p>注意将<strong>sasakiyua.github.io</strong>换成你下载下来的文件名，也就是你的GitHub仓库名。</p><p>打开浏览器输入<strong>sasakiyua.github.io</strong>，发现你的vuepress博客已经推送到GitHub pages上了。</p><h2 id="_12">下一步</h2><p>至此，我们用vuepress搭建一个简洁的博客的大目标就已经完成了！</p><p>撒花！</p><p>现在你可以用它来发表自己的博客了！</p><p>还有一些杂项，它们不影响博客的使用。例如<strong>config.js</strong>配置文件中其他项目的配置，单个.md文件中的 <strong>Front Matter</strong> 的设置，<strong>静态资源</strong>引入，在.md文件中插入html或js标签，等等问题，会放在下一篇文章来说明。</p><h2 id="_13">补充</h2><ol><li>可能大部分刚接触vps的人，对vim编辑器不熟悉。在这个地方卡住了，网上的资料多如牛毛，找来看看，练习个3分钟就学会简单的操作了。</li><li>vuepress写博客，还学要学会Markdown语法，这个也很简单，搜一搜练一练吧。</li></ol><p></p></div><ul class="dlink"><li class="detag">标签： <a href="./tag-how-to-build-a-blog-using-hexo-or-vuepress-from-scratch.html">hexo或vuepress博客</a></li><li class="decat">分类： <a href="./category-tech.html">技术</a> <a href="./category-product-manager.html">产品经理</a> <a href="./category-linux.html">linux</a></li></ul><h4>更多好文</h4><ul><li> <a href="./build-a-hexo-or-vuepress-blog-from-scratch.html">hexo以及vuepress博客从零搭建小白教程</a></li><li> <a href="./config-vuepress-blog-sidebar-and-navbar.html">vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程</a></li></ul></div><div class="col-md-3 col-md-offset-1 sidebox"><div><h3>最新文章</h3><p></p><ul class="latest"><li><a href="./config-vuepress-blog-sidebar-and-navbar.html">vuepress 配置 sidebar 侧边栏和 nav 导航栏基础教程</a></li><li><a href="./build-a-hexo-or-vuepress-blog-from-scratch.html">hexo以及vuepress博客从零搭建小白教程</a></li><li><a href="./tension-and-limits-revolution-of-the-Central-Soviet-Area-1933-1934.html">原型的坍塌</a></li><li><a href="./bad-blood-silicon-valley-biotech-liar-part-two.html">硅谷巨骗：女版乔布斯的神话和陨落（2）</a></li><li><a href="./google-back-to-China-again.html">谷歌：你一生的故事</a></li><li><a href="./stay-hungry-stay-foolish.html">好奇心改变世界</a></li><li><a href="./know-yourself.html">起来，不愿做韭菜的人们！</a></li><li><a href="./life-and-death-of-pinduoduo.html">拼多多黄铮：割吊丝的韭菜，是精英们最大的快乐</a></li><li><a href="./bad-blood-silicon-valley-biotech-liar.html">硅谷巨骗：女版乔布斯的神话和陨落（1）</a></li></ul><p></p></div><div><h3> 文章标签</h3><p></p><ul class="tags"><li> <a href="./tag-bad-blood.html">bad blood</a></li><li> <a href="./tag-pingduoduo-is-a-Chinese-social-commerce-tech-startup-.html">拼多多</a></li><li> <a href="./tag-opinion.html">观点</a></li><li> <a href="./tag-Chinese-revolution.html">张力与限界：中央苏区的革命</a></li><li> <a href="./tag-google.html">谷歌</a></li><li> <a href="./tag-how-to-build-a-blog-using-hexo-or-vuepress-from-scratch.html">hexo或vuepress博客</a></li></ul><p></p></div><div><h3> 文章分类</h3><p></p><ul class="catlist"><li> <a href="./category-tech.html">技术</a></li><li> <a href="./category-Japanese.html">日语</a></li><li> <a href="./category-product-manager.html">产品经理</a></li><li> <a href="./category-Japanese-grammar.html">日语语法</a></li><li> <a href="./category-linux.html">linux</a></li><li> <a href="./category-startup.html">创业</a></li><li> <a href="./category-books.html">书籍</a></li><li> <a href="./category-critic.html">评论</a></li></ul><p></p></div></div><div class="col-md-6 col-md-offset-1 foot"></div></div></div></body></html>
